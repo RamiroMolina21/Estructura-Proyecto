@@ -3,30 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulador de Tickets - Algoritmo Greedy</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Simulador de Tickets - Soporte Técnico</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div id="app">
+  <div class="container">
     <!-- Header -->
     <div class="header">
-      <h1>Simulador de Cola de Soporte Técnico</h1>
+      <h1>Simulador de Soporte Técnico</h1>
       <p class="subtitle">Algoritmo Greedy con Prioridad Ponderada</p>
-      <p class="formula">Fórmula: Prioridad = (Urgencia × 0.6) + (Impacto × 0.4)</p>
+      <p class="formula">Fórmula: Prioridad = RangoAdmin + (Crítico × 0.5)</p>
     </div>
 
-    <!-- Panel de controles -->
-    <div class="control-panel">
+    <!-- Explicación del Proceso Real -->
+    <div class="process-explanation">
+      <h2>📋 Proceso Real de Soporte Técnico en la Corporación</h2>
+      
+      <div class="highlight">
+        <h3>🔄 ¿Cómo funciona actualmente?</h3>
+        <p><strong>1. Recepción de solicitudes:</strong> El personal envía tickets a través del sistema Aldea (CAS - Centro de Atención y Servicios), seleccionando "Soporte técnico y mantenimiento de computadores" y completando el formulario con: Asunto, Ubicación y Descripción del problema.</p>
+        
+        <p><strong>2. Volumen diario:</strong> Se reciben aproximadamente <strong>10 solicitudes por día</strong>, con mayor demanda en las <strong>horas de la mañana</strong>.</p>
+        
+        <p><strong>3. Criterio de priorización:</strong> Las solicitudes se priorizan por <strong>rango administrativo</strong>:</p>
+        <ul>
+          <li><strong>Nivel 5:</strong> Directivos (Rector, Vicerrector, Decanos, Directores)</li>
+          <li><strong>Nivel 4:</strong> Coordinadores</li>
+          <li><strong>Nivel 3:</strong> Docentes</li>
+          <li><strong>Nivel 2:</strong> Personal Administrativo</li>
+          <li><strong>Nivel 1:</strong> Auxiliares</li>
+        </ul>
+        
+        <p><strong>4. Prioridad adicional:</strong> Las solicitudes de áreas críticas como <strong>Rectoría</strong> y <strong>Financiera</strong> (oficinas muy concurridas) reciben atención preferencial por su impacto operativo.</p>
+        
+        <p><strong>5. Atención:</strong> Un solo técnico atiende todas las solicitudes. Los casos simples (mantenimiento, limpieza RAM) toman 10-20 minutos, mientras que problemas complejos (placas dañadas, sistemas internos) requieren más tiempo según necesidad (sin SLA definido).</p>
+      </div>
+
+      <div class="algorithm-box">
+        <h3>⚙️ Algoritmo Greedy Implementado</h3>
+        <p><strong>Tipo:</strong> Greedy por Prioridad Ponderada</p>
+        <p><strong>¿Dónde se aplica el algoritmo?</strong></p>
+        <p>El algoritmo Greedy se ejecuta en la función <code>inicializarCola()</code> cuando se hace clic en el botón "Iniciar". En ese momento:</p>
+        <ul>
+          <li>Se calcula la prioridad ponderada de cada ticket usando: <code>Prioridad = rangoAdmin + (esCritico ? 0.5 : 0)</code></li>
+          <li>Se ordenan todos los tickets de <strong>mayor a menor prioridad</strong> (decisión greedy: siempre elegir el más prioritario)</li>
+          <li>Luego, en <code>procesarSiguiente()</code>, se procesa siempre el ticket en la posición [0] (el de mayor prioridad restante)</li>
+        </ul>
+        <p><strong>Estrategia voraz:</strong> En cada paso, selecciona el ticket con mayor prioridad sin reconsiderar decisiones previas. Esta elección local (greedy) garantiza que los casos más importantes se atiendan primero.</p>
+        <p><strong>Complejidad:</strong> O(n log n) para el ordenamiento inicial + O(1) por cada selección</p>
+      </div>
+
+      <h3>📊 Datos que incluye cada ticket:</h3>
+      <ul>
+        <li><strong>ID:</strong> Identificador único del ticket</li>
+        <li><strong>Título:</strong> Descripción breve del problema</li>
+        <li><strong>Solicitante:</strong> Nombre y cargo de quien solicita</li>
+        <li><strong>Rango Administrativo:</strong> Nivel jerárquico (1-5)</li>
+        <li><strong>Ubicación:</strong> Lugar donde se requiere el servicio</li>
+        <li><strong>Tiempo Estimado:</strong> Horas aproximadas de trabajo</li>
+        <li><strong>Crítico:</strong> Marca si es de área prioritaria</li>
+      </ul>
+    </div>
+
+    <!-- Controles -->
+    <div class="controls">
       <div class="controls-left">
         <button id="btnIniciar" class="btn btn-blue">▶️ Iniciar</button>
-        <button id="btnSiguiente" class="btn btn-green" disabled>⏭️ Siguiente</button>
-        <button id="btnAuto" class="btn btn-purple" disabled>▶️ Auto</button>
+        <button id="btnSiguiente" class="btn btn-green">⏭️ Siguiente</button>
+        <button id="btnAuto" class="btn btn-purple">▶️ Auto</button>
         <button id="btnReiniciar" class="btn btn-red">🔄 Reiniciar</button>
       </div>
       <div class="controls-right">
         <button class="btn-dataset active" data-set="pequeño">Pequeño (5)</button>
-        <button class="btn-dataset" data-set="mediano">Mediano (8)</button>
-        <button class="btn-dataset" data-set="grande">Grande (12)</button>
+        <button class="btn-dataset" data-set="mediano">Mediano (10)</button>
+        <button class="btn-dataset" data-set="grande">Grande (14)</button>
       </div>
     </div>
 
@@ -65,33 +115,36 @@
     <!-- Ticket en proceso -->
     <div id="ticketProcesando" class="ticket-processing hidden">
       <h3>🔄 Procesando Ahora...</h3>
-      <div id="processingContent"></div>
+      <div id="processingContent" class="processing-content"></div>
     </div>
 
     <!-- Resultado final -->
     <div id="resultadoFinal" class="result-final hidden">
       <h3>✅ Proceso Completado</h3>
-      <div id="finalStats"></div>
+      <div id="finalStats" class="final-stats"></div>
       <p id="tiempoEjecucion" class="execution-time"></p>
     </div>
 
-    <!-- Explicación -->
+    <!-- Explicación técnica -->
     <div class="explanation">
-      <h3>📊 Cómo Funciona el Algoritmo Greedy</h3>
+      <h3>📊 Detalles del Algoritmo Greedy</h3>
       <p><strong>Estrategia:</strong> Selección voraz (greedy) por prioridad ponderada</p>
-      <p><strong>Fórmula de prioridad:</strong> Prioridad = (Urgencia × 0.6) + (Impacto × 0.4)</p>
+      <p><strong>Fórmula de prioridad:</strong> Prioridad = RangoAdministrativo + (EsCrítico × 0.5)</p>
+      <p><strong>¿Por qué es Greedy?</strong> En cada iteración, el algoritmo hace la elección "óptima local" (el ticket con mayor prioridad disponible) sin reconsiderar decisiones pasadas. Esta estrategia voraz garantiza atender primero los casos más importantes.</p>
+      
       <p><strong>Pasos del algoritmo:</strong></p>
       <ul>
-        <li>Calcular la prioridad de cada ticket usando la fórmula</li>
-        <li>Ordenar todos los tickets de mayor a menor prioridad</li>
-        <li>Procesar siempre el ticket con mayor prioridad disponible</li>
-        <li>Repetir hasta que no queden tickets pendientes</li>
+        <li><strong>Inicialización:</strong> Calcular la prioridad ponderada de cada ticket</li>
+        <li><strong>Ordenamiento:</strong> Ordenar todos los tickets de mayor a menor prioridad</li>
+        <li><strong>Selección voraz:</strong> Procesar siempre el ticket con mayor prioridad disponible (primero en cola)</li>
+        <li><strong>Iteración:</strong> Repetir hasta que no queden tickets pendientes</li>
       </ul>
-      <p><strong>Complejidad computacional:</strong> O(n log n) por el ordenamiento inicial</p>
-      <p><strong>Ventaja:</strong> Simple, rápido y garantiza atender primero los casos más críticos</p>
+      
+      <p><strong>Complejidad computacional:</strong> O(n log n) por el ordenamiento inicial + O(1) por cada selección</p>
+      <p><strong>Ventaja:</strong> Simple, eficiente y garantiza atender primero los casos más críticos según jerarquía organizacional</p>
     </div>
   </div>
 
-  <script src="js/app.js"></script>
+  <script src="js/scripts.js"></script>
 </body>
 </html>
