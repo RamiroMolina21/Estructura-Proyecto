@@ -1,3 +1,60 @@
+// Datasets de tickets para simulación
+const dataSets = {
+  pequeño: [
+    { id: 'T001', titulo: 'Error en login', urgencia: 4, impacto: 3, tiempoEst: 2.5 },
+    { id: 'T002', titulo: 'Actualización de perfil', urgencia: 2, impacto: 2, tiempoEst: 1.0 },
+    { id: 'T003', titulo: 'Sistema caído', urgencia: 5, impacto: 5, tiempoEst: 4.0 },
+    { id: 'T004', titulo: 'Cambio de contraseña', urgencia: 3, impacto: 2, tiempoEst: 0.5 },
+    { id: 'T005', titulo: 'Reporte de ventas', urgencia: 2, impacto: 4, tiempoEst: 3.0 }
+  ],
+  mediano: [
+    { id: 'T001', titulo: 'Error en login', urgencia: 4, impacto: 3, tiempoEst: 2.5 },
+    { id: 'T002', titulo: 'Actualización de perfil', urgencia: 2, impacto: 2, tiempoEst: 1.0 },
+    { id: 'T003', titulo: 'Sistema caído', urgencia: 5, impacto: 5, tiempoEst: 4.0 },
+    { id: 'T004', titulo: 'Cambio de contraseña', urgencia: 3, impacto: 2, tiempoEst: 0.5 },
+    { id: 'T005', titulo: 'Reporte de ventas', urgencia: 2, impacto: 4, tiempoEst: 3.0 },
+    { id: 'T006', titulo: 'Pérdida de datos', urgencia: 5, impacto: 5, tiempoEst: 5.0 },
+    { id: 'T007', titulo: 'Mejora en UI', urgencia: 1, impacto: 3, tiempoEst: 2.0 },
+    { id: 'T008', titulo: 'Backup automático', urgencia: 3, impacto: 4, tiempoEst: 3.5 }
+  ],
+  grande: [
+    { id: 'T001', titulo: 'Error en login', urgencia: 4, impacto: 3, tiempoEst: 2.5 },
+    { id: 'T002', titulo: 'Actualización de perfil', urgencia: 2, impacto: 2, tiempoEst: 1.0 },
+    { id: 'T003', titulo: 'Sistema caído', urgencia: 5, impacto: 5, tiempoEst: 4.0 },
+    { id: 'T004', titulo: 'Cambio de contraseña', urgencia: 3, impacto: 2, tiempoEst: 0.5 },
+    { id: 'T005', titulo: 'Reporte de ventas', urgencia: 2, impacto: 4, tiempoEst: 3.0 },
+    { id: 'T006', titulo: 'Pérdida de datos', urgencia: 5, impacto: 5, tiempoEst: 5.0 },
+    { id: 'T007', titulo: 'Mejora en UI', urgencia: 1, impacto: 3, tiempoEst: 2.0 },
+    { id: 'T008', titulo: 'Backup automático', urgencia: 3, impacto: 4, tiempoEst: 3.5 },
+    { id: 'T009', titulo: 'Vulnerabilidad crítica', urgencia: 5, impacto: 5, tiempoEst: 6.0 },
+    { id: 'T010', titulo: 'Optimización de consultas', urgencia: 3, impacto: 4, tiempoEst: 4.0 },
+    { id: 'T011', titulo: 'Nueva funcionalidad', urgencia: 2, impacto: 3, tiempoEst: 5.0 },
+    { id: 'T012', titulo: 'Corrección de bugs menores', urgencia: 1, impacto: 1, tiempoEst: 1.5 }
+  ]
+};
+
+// Estado global de la aplicación
+const state = {
+  tickets: [],
+  queue: [],
+  processed: [],
+  currentTicket: null,
+  selectedDataSet: 'pequeño',
+  metrics: {
+    tiempoTotal: 0,
+    ticketsAtendidos: 0,
+    tiempoPromedio: 0,
+    criticosAtendidos: 0,
+    startTime: null,
+    endTime: null
+  },
+  isRunning: false,
+  autoInterval: null
+};
+
+// Inicializar con el dataset pequeño por defecto
+state.tickets = [...dataSets[state.selectedDataSet]];
+
 // Calcula la prioridad ponderada: (Urgencia × 0.6) + (Impacto × 0.4)
 function calcularPrioridad(ticket) {
   // Combina urgencia e impacto aplicando un peso mayor a la urgencia.
