@@ -1,47 +1,49 @@
 // Datasets de tickets basados en proceso real (~10 tickets diarios)
+// Los tickets están desordenados intencionalmente para simular llegada aleatoria
 const dataSets = {
   pequeño: [
+    { id: 'T004', titulo: 'Cambio de teclado', solicitante: 'Auxiliar administrativo', rangoAdmin: 1, ubicacion: 'Biblioteca', tiempoEst: 0.2, critico: false },
     { id: 'T001', titulo: 'Mantenimiento computador', solicitante: 'Decano de Ingeniería', rangoAdmin: 5, ubicacion: 'Rectoría', tiempoEst: 0.3, critico: true },
     { id: 'T002', titulo: 'Limpieza RAM', solicitante: 'Docente Matemáticas', rangoAdmin: 3, ubicacion: 'Salón 203', tiempoEst: 0.2, critico: false },
-    { id: 'T003', titulo: 'Impresora no imprime', solicitante: 'Director Financiero', rangoAdmin: 5, ubicacion: 'Oficina Financiera', tiempoEst: 0.5, critico: true },
-    { id: 'T004', titulo: 'Cambio de teclado', solicitante: 'Auxiliar administrativo', rangoAdmin: 1, ubicacion: 'Biblioteca', tiempoEst: 0.2, critico: false },
-    { id: 'T005', titulo: 'Instalación software', solicitante: 'Coordinador académico', rangoAdmin: 4, ubicacion: 'Decanatura', tiempoEst: 0.4, critico: false }
+    { id: 'T005', titulo: 'Instalación software', solicitante: 'Coordinador académico', rangoAdmin: 4, ubicacion: 'Decanatura', tiempoEst: 0.4, critico: false },
+    { id: 'T003', titulo: 'Impresora no imprime', solicitante: 'Director Financiero', rangoAdmin: 5, ubicacion: 'Oficina Financiera', tiempoEst: 0.5, critico: true }
   ],
   mediano: [
+    { id: 'T009', titulo: 'Actualizar antivirus', solicitante: 'Secretaria', rangoAdmin: 2, ubicacion: 'Secretaría', tiempoEst: 0.2, critico: false },
     { id: 'T001', titulo: 'Mantenimiento computador', solicitante: 'Decano de Ingeniería', rangoAdmin: 5, ubicacion: 'Rectoría', tiempoEst: 0.3, critico: true },
-    { id: 'T002', titulo: 'Limpieza RAM', solicitante: 'Docente Matemáticas', rangoAdmin: 3, ubicacion: 'Salón 203', tiempoEst: 0.2, critico: false },
+    { id: 'T007', titulo: 'Mouse no funciona', solicitante: 'Docente Física', rangoAdmin: 3, ubicacion: 'Lab Física', tiempoEst: 0.1, critico: false },
     { id: 'T003', titulo: 'Impresora no imprime', solicitante: 'Director Financiero', rangoAdmin: 5, ubicacion: 'Oficina Financiera', tiempoEst: 0.5, critico: true },
     { id: 'T004', titulo: 'Cambio de teclado', solicitante: 'Auxiliar administrativo', rangoAdmin: 1, ubicacion: 'Biblioteca', tiempoEst: 0.2, critico: false },
-    { id: 'T005', titulo: 'Instalación software', solicitante: 'Coordinador académico', rangoAdmin: 4, ubicacion: 'Decanatura', tiempoEst: 0.4, critico: false },
-    { id: 'T006', titulo: 'Sistema operativo dañado', solicitante: 'Rector', rangoAdmin: 5, ubicacion: 'Rectoría', tiempoEst: 1.0, critico: true },
-    { id: 'T007', titulo: 'Mouse no funciona', solicitante: 'Docente Física', rangoAdmin: 3, ubicacion: 'Lab Física', tiempoEst: 0.1, critico: false },
     { id: 'T008', titulo: 'Configurar correo', solicitante: 'Vicerrector', rangoAdmin: 5, ubicacion: 'Vicerrectoría', tiempoEst: 0.3, critico: false },
-    { id: 'T009', titulo: 'Actualizar antivirus', solicitante: 'Secretaria', rangoAdmin: 2, ubicacion: 'Secretaría', tiempoEst: 0.2, critico: false },
-    { id: 'T010', titulo: 'Formateo urgente', solicitante: 'Dir. Administrativa', rangoAdmin: 5, ubicacion: 'Admin', tiempoEst: 0.8, critico: true }
+    { id: 'T002', titulo: 'Limpieza RAM', solicitante: 'Docente Matemáticas', rangoAdmin: 3, ubicacion: 'Salón 203', tiempoEst: 0.2, critico: false },
+    { id: 'T010', titulo: 'Formateo urgente', solicitante: 'Dir. Administrativa', rangoAdmin: 5, ubicacion: 'Admin', tiempoEst: 0.8, critico: true },
+    { id: 'T005', titulo: 'Instalación software', solicitante: 'Coordinador académico', rangoAdmin: 4, ubicacion: 'Decanatura', tiempoEst: 0.4, critico: false },
+    { id: 'T006', titulo: 'Sistema operativo dañado', solicitante: 'Rector', rangoAdmin: 5, ubicacion: 'Rectoría', tiempoEst: 1.0, critico: true }
   ],
   grande: [
-    { id: 'T001', titulo: 'Mantenimiento computador', solicitante: 'Decano de Ingeniería', rangoAdmin: 5, ubicacion: 'Rectoría', tiempoEst: 0.3, critico: true },
-    { id: 'T002', titulo: 'Limpieza RAM', solicitante: 'Docente Matemáticas', rangoAdmin: 3, ubicacion: 'Salón 203', tiempoEst: 0.2, critico: false },
-    { id: 'T003', titulo: 'Impresora no imprime', solicitante: 'Director Financiero', rangoAdmin: 5, ubicacion: 'Oficina Financiera', tiempoEst: 0.5, critico: true },
-    { id: 'T004', titulo: 'Cambio de teclado', solicitante: 'Auxiliar administrativo', rangoAdmin: 1, ubicacion: 'Biblioteca', tiempoEst: 0.2, critico: false },
-    { id: 'T005', titulo: 'Instalación software', solicitante: 'Coordinador académico', rangoAdmin: 4, ubicacion: 'Decanatura', tiempoEst: 0.4, critico: false },
-    { id: 'T006', titulo: 'Sistema operativo dañado', solicitante: 'Rector', rangoAdmin: 5, ubicacion: 'Rectoría', tiempoEst: 1.0, critico: true },
-    { id: 'T007', titulo: 'Mouse no funciona', solicitante: 'Docente Física', rangoAdmin: 3, ubicacion: 'Lab Física', tiempoEst: 0.1, critico: false },
-    { id: 'T008', titulo: 'Configurar correo', solicitante: 'Vicerrector', rangoAdmin: 5, ubicacion: 'Vicerrectoría', tiempoEst: 0.3, critico: false },
-    { id: 'T009', titulo: 'Actualizar antivirus', solicitante: 'Secretaria', rangoAdmin: 2, ubicacion: 'Secretaría', tiempoEst: 0.2, critico: false },
-    { id: 'T010', titulo: 'Formateo urgente', solicitante: 'Dir. Administrativa', rangoAdmin: 5, ubicacion: 'Admin', tiempoEst: 0.8, critico: true },
-    { id: 'T011', titulo: 'Placa base dañada', solicitante: 'Decano Derecho', rangoAdmin: 5, ubicacion: 'Facultad Derecho', tiempoEst: 2.0, critico: true },
     { id: 'T012', titulo: 'Cable de red', solicitante: 'Monitor', rangoAdmin: 2, ubicacion: 'Cafetería', tiempoEst: 0.1, critico: false },
+    { id: 'T003', titulo: 'Impresora no imprime', solicitante: 'Director Financiero', rangoAdmin: 5, ubicacion: 'Oficina Financiera', tiempoEst: 0.5, critico: true },
+    { id: 'T007', titulo: 'Mouse no funciona', solicitante: 'Docente Física', rangoAdmin: 3, ubicacion: 'Lab Física', tiempoEst: 0.1, critico: false },
+    { id: 'T001', titulo: 'Mantenimiento computador', solicitante: 'Decano de Ingeniería', rangoAdmin: 5, ubicacion: 'Rectoría', tiempoEst: 0.3, critico: true },
+    { id: 'T009', titulo: 'Actualizar antivirus', solicitante: 'Secretaria', rangoAdmin: 2, ubicacion: 'Secretaría', tiempoEst: 0.2, critico: false },
+    { id: 'T011', titulo: 'Placa base dañada', solicitante: 'Decano Derecho', rangoAdmin: 5, ubicacion: 'Facultad Derecho', tiempoEst: 2.0, critico: true },
+    { id: 'T004', titulo: 'Cambio de teclado', solicitante: 'Auxiliar administrativo', rangoAdmin: 1, ubicacion: 'Biblioteca', tiempoEst: 0.2, critico: false },
+    { id: 'T008', titulo: 'Configurar correo', solicitante: 'Vicerrector', rangoAdmin: 5, ubicacion: 'Vicerrectoría', tiempoEst: 0.3, critico: false },
     { id: 'T013', titulo: 'Pantalla no enciende', solicitante: 'Docente Química', rangoAdmin: 3, ubicacion: 'Lab Química', tiempoEst: 0.4, critico: false },
-    { id: 'T014', titulo: 'Televisor aula', solicitante: 'Auxiliar', rangoAdmin: 1, ubicacion: 'Auditorio', tiempoEst: 0.3, critico: false }
+    { id: 'T002', titulo: 'Limpieza RAM', solicitante: 'Docente Matemáticas', rangoAdmin: 3, ubicacion: 'Salón 203', tiempoEst: 0.2, critico: false },
+    { id: 'T014', titulo: 'Televisor aula', solicitante: 'Auxiliar', rangoAdmin: 1, ubicacion: 'Auditorio', tiempoEst: 0.3, critico: false },
+    { id: 'T010', titulo: 'Formateo urgente', solicitante: 'Dir. Administrativa', rangoAdmin: 5, ubicacion: 'Admin', tiempoEst: 0.8, critico: true },
+    { id: 'T005', titulo: 'Instalación software', solicitante: 'Coordinador académico', rangoAdmin: 4, ubicacion: 'Decanatura', tiempoEst: 0.4, critico: false },
+    { id: 'T006', titulo: 'Sistema operativo dañado', solicitante: 'Rector', rangoAdmin: 5, ubicacion: 'Rectoría', tiempoEst: 1.0, critico: true }
   ]
 };
 
 // Estado global
 const state = {
   tickets: [],
-  queue: [],
-  processed: [],
+  incoming: [], // Tickets llegando en desorden
+  queue: [], // Cola ordenada por prioridad
+  processed: [], // Tickets atendidos
   currentTicket: null,
   selectedDataSet: 'pequeño',
   metrics: {
@@ -53,11 +55,66 @@ const state = {
     endTime: null
   },
   isRunning: false,
-  autoInterval: null
+  autoInterval: null,
+  arrivalInterval: null, // Intervalo para llegada de tickets
+  ticketsToArrive: [], // Tickets pendientes de llegar
+  isArriving: false // Si los tickets están llegando
 };
 
 // Inicializar con dataset pequeño
 state.tickets = [...dataSets[state.selectedDataSet]];
+
+// Función para generar tiempo aleatorio basado en el tipo de problema
+function generarTiempoAleatorio(ticket) {
+  const base = ticket.tiempoEst;
+  // Variación aleatoria del ±30% del tiempo base
+  const variacion = base * 0.3;
+  const tiempoAleatorio = base + (Math.random() * variacion * 2 - variacion);
+  return Math.max(0.1, tiempoAleatorio); // Mínimo 0.1 horas
+}
+
+// Función para simular la llegada aleatoria de tickets
+function iniciarLlegadaTickets() {
+  if (state.isArriving) return;
+  
+  state.isArriving = true;
+  state.incoming = [];
+  state.ticketsToArrive = [...state.tickets].sort(() => Math.random() - 0.5); // Mezclar aleatoriamente
+  
+  // Función recursiva para agregar tickets con intervalos aleatorios
+  function agregarSiguienteTicket() {
+    if (state.ticketsToArrive.length === 0) {
+      state.isArriving = false;
+      actualizarUI();
+      // Cuando todos los tickets hayan llegado, ordenar automáticamente
+      setTimeout(() => {
+        inicializarCola();
+      }, 500);
+      return;
+    }
+    
+    const ticket = state.ticketsToArrive.shift();
+    state.incoming.push(ticket);
+    actualizarUI();
+    
+    // Intervalo aleatorio entre 500ms y 2000ms para la siguiente llegada
+    const intervaloAleatorio = 500 + Math.random() * 1500;
+    
+    state.arrivalInterval = setTimeout(agregarSiguienteTicket, intervaloAleatorio);
+  }
+  
+  // Iniciar la llegada del primer ticket
+  agregarSiguienteTicket();
+}
+
+// Detener la llegada de tickets
+function detenerLlegadaTickets() {
+  if (state.arrivalInterval) {
+    clearTimeout(state.arrivalInterval);
+    state.arrivalInterval = null;
+  }
+  state.isArriving = false;
+}
 
 // ⚙️ ALGORITMO GREEDY: Calcula prioridad ponderada
 // Este es el corazón del algoritmo voraz
@@ -76,8 +133,14 @@ function calcularPrioridad(ticket) {
 // ⚙️ ALGORITMO GREEDY: Inicializa y ordena la cola
 // Aquí se aplica la estrategia voraz: ordenar por prioridad y siempre elegir el mayor
 function inicializarCola() {
+  // Detener llegada de tickets si está activa
+  detenerLlegadaTickets();
+  
+  // Si hay tickets llegando, usar esos; si no, usar todos los tickets
+  const ticketsParaOrdenar = state.incoming.length > 0 ? [...state.incoming] : [...state.tickets];
+  
   // Paso 1: Calcular prioridad de cada ticket
-  state.queue = [...state.tickets]
+  state.queue = ticketsParaOrdenar
     .map(t => ({ ...t, prioridad: calcularPrioridad(t) }))
     // Paso 2: DECISIÓN GREEDY - Ordenar de mayor a menor prioridad
     .sort((a, b) => {
@@ -120,14 +183,18 @@ function procesarSiguiente() {
 
   actualizarUI();
 
+  // Tiempo de procesamiento aleatorio basado en el tipo de problema
+  const tiempoProcesamiento = generarTiempoAleatorio(siguiente);
+  const tiempoMs = tiempoProcesamiento * 1000; // Convertir horas a milisegundos (simulado)
+  
   setTimeout(() => {
     // Remover ticket procesado de la cola
     state.queue = state.queue.slice(1);
     state.processed.push(siguiente);
     state.currentTicket = null;
 
-    // Actualizar métricas
-    state.metrics.tiempoTotal += siguiente.tiempoEst;
+    // Actualizar métricas con el tiempo aleatorio generado
+    state.metrics.tiempoTotal += tiempoProcesamiento;
     state.metrics.ticketsAtendidos = state.processed.length;
     state.metrics.tiempoPromedio = state.metrics.tiempoTotal / state.metrics.ticketsAtendidos;
     state.metrics.criticosAtendidos += (siguiente.critico ? 1 : 0);
@@ -139,12 +206,13 @@ function procesarSiguiente() {
 
     actualizarUI();
     habilitarBotones();
-  }, 1000);
+  }, Math.min(tiempoMs, 3000)); // Máximo 3 segundos para la animación visual
 }
 
 function cambiarDataSet(nombre) {
   state.selectedDataSet = nombre;
   state.tickets = [...dataSets[nombre]];
+  detenerLlegadaTickets();
   reiniciar();
   
   document.querySelectorAll('.btn-dataset').forEach(btn => {
@@ -182,9 +250,12 @@ function getPrioridadColorClass(prioridad) {
 
 function reiniciar() {
   detenerAuto();
+  detenerLlegadaTickets();
+  state.incoming = [];
   state.queue = [];
   state.processed = [];
   state.currentTicket = null;
+  state.ticketsToArrive = [];
   state.metrics = {
     tiempoTotal: 0,
     ticketsAtendidos: 0,
@@ -250,8 +321,33 @@ function actualizarUI() {
   document.getElementById('criticos').textContent = state.metrics.criticosAtendidos;
 
   // Contadores
+  document.getElementById('countLlegando').textContent = state.incoming.length;
   document.getElementById('countPendiente').textContent = state.queue.length;
   document.getElementById('countAtendidos').textContent = state.processed.length;
+  
+  // Mostrar tickets llegando (en desorden)
+  const colaLlegando = document.getElementById('colaLlegando');
+  if (colaLlegando) {
+    colaLlegando.innerHTML = state.incoming.map((ticket, index) => {
+      const prioridad = calcularPrioridad(ticket);
+      return `
+      <div class="ticket-card priority-${getPrioridadClass(prioridad)}">
+        <div class="ticket-header">
+          <span class="ticket-id">#${index + 1} - ${ticket.id}</span>
+          <span class="ticket-priority ${getPrioridadColorClass(prioridad)}">P: ${prioridad.toFixed(1)}</span>
+        </div>
+        <div class="ticket-title">${ticket.titulo}</div>
+        <p style="font-size: 0.9rem; color: #cbd5e1; margin: 5px 0;">👤 ${ticket.solicitante}</p>
+        <div class="ticket-meta">
+          <span class="meta-tag">${getRangoLabel(ticket.rangoAdmin)}</span>
+          <span class="meta-tag">📍 ${ticket.ubicacion}</span>
+          <span class="meta-tag">⏱️ ${ticket.tiempoEst}h</span>
+          ${ticket.critico ? '<span class="meta-tag" style="background: #ef4444;">🚨 Crítico</span>' : ''}
+        </div>
+      </div>
+    `;
+    }).join('');
+  }
 
   // Cola pendiente
   const colaPendiente = document.getElementById('colaPendiente');
@@ -348,7 +444,16 @@ function actualizarUI() {
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('btnIniciar').addEventListener('click', inicializarCola);
+  document.getElementById('btnIniciar').addEventListener('click', () => {
+    // Si no hay tickets llegando y no se ha iniciado, empezar la llegada
+    if (state.incoming.length === 0 && !state.isArriving && state.ticketsToArrive.length === 0) {
+      iniciarLlegadaTickets();
+    } else if (state.incoming.length > 0 && !state.isArriving) {
+      // Si ya llegaron todos los tickets, solo ordenar
+      inicializarCola();
+    }
+  });
+  
   document.getElementById('btnSiguiente').addEventListener('click', () => {
     if (state.queue.length > 0 && !state.currentTicket) {
       procesarSiguiente();

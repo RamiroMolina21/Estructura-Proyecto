@@ -103,11 +103,18 @@
     <!-- Colas -->
     <div class="queues">
       <div class="queue-container">
-        <h3><span class="dot dot-yellow"></span> Cola Pendiente (<span id="countPendiente">0</span>)</h3>
+        <h3><span class="dot dot-red"></span> Tickets Llegando - Sin Ordenar (<span id="countLlegando">0</span>)</h3>
+        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 10px;">Los tickets llegan en desorden (administrativo, decano, docente, etc.)</p>
+        <div id="colaLlegando" class="queue-content"></div>
+      </div>
+      <div class="queue-container">
+        <h3><span class="dot dot-yellow"></span> Cola Ordenada por Prioridad (<span id="countPendiente">0</span>)</h3>
+        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 10px;">Tickets ordenados por el algoritmo Greedy</p>
         <div id="colaPendiente" class="queue-content"></div>
       </div>
       <div class="queue-container">
         <h3><span class="dot dot-green"></span> Tickets Atendidos (<span id="countAtendidos">0</span>)</h3>
+        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 10px;">Tickets procesados y completados</p>
         <div id="colaAtendidos" class="queue-content"></div>
       </div>
     </div>
